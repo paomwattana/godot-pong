@@ -45,24 +45,25 @@ shape = SubResource( 3 )
 
 [node name="Scores" type="HSplitContainer" parent="."]
 margin_left = 470.0
+margin_top = 240.0
 margin_right = 550.0
-margin_bottom = 40.0
+margin_bottom = 280.0
 rect_scale = Vector2( 3, 3 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="PlayerScore" type="Label" parent="Scores"]
-margin_top = 13.0
+margin_top = 12.0
 margin_right = 8.0
-margin_bottom = 27.0
+margin_bottom = 26.0
 text = "0"
 
 [node name="AIScore" type="Label" parent="Scores"]
 margin_left = 20.0
-margin_top = 13.0
+margin_top = 12.0
 margin_right = 80.0
-margin_bottom = 27.0
+margin_bottom = 26.0
 text = "0"
 
 [connection signal="body_entered" from="GoalLeft" to="." method="_on_GoalLeft_body_entered"]
