@@ -1,0 +1,69 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://PaddlePlayer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Game.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 522, 10 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 10, 295 )
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="PaddlePlayer" parent="." instance=ExtResource( 1 )]
+position = Vector2( 24, 300 )
+
+[node name="Wall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+position = Vector2( 512, -10 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Wall"]
+position = Vector2( 512, 610 )
+shape = SubResource( 2 )
+
+[node name="GoalLeft" type="Area2D" parent="."]
+position = Vector2( -10, 300 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoalLeft"]
+shape = SubResource( 3 )
+
+[node name="GoalRight" type="Area2D" parent="."]
+position = Vector2( 1036, 300 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoalRight"]
+shape = SubResource( 3 )
+
+[node name="Scores" type="HSplitContainer" parent="."]
+margin_left = 470.0
+margin_right = 550.0
+margin_bottom = 40.0
+rect_scale = Vector2( 3, 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="PlayerScore" type="Label" parent="Scores"]
+margin_top = 13.0
+margin_right = 8.0
+margin_bottom = 27.0
+text = "0"
+
+[node name="AIScore" type="Label" parent="Scores"]
+margin_left = 20.0
+margin_top = 13.0
+margin_right = 80.0
+margin_bottom = 27.0
+text = "0"
+
+[connection signal="body_entered" from="GoalLeft" to="." method="_on_GoalLeft_body_entered"]
+[connection signal="body_entered" from="GoalRight" to="." method="_on_GoalRight_body_entered"]
