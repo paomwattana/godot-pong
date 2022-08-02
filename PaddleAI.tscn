@@ -9,9 +9,7 @@ extents = Vector2( 3, 23 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 125.5, 612 )
 
-[node name="PaddleAI" type="RigidBody2D"]
-mode = 2
-gravity_scale = 0.0
+[node name="PaddleAI" type="KinematicBody2D"]
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
