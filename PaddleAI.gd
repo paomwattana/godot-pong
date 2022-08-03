@@ -17,9 +17,9 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity)
 
 
-func _on_DetectionArea2D_body_entered(body:Node):
-	ball = body
+func _on_DetectionArea2D_area_entered(area):
+	ball = area
 
 
-func _on_DetectionArea2D_body_exited(body:Node):
+func _on_DetectionArea2D_area_exited(area):
 	ball = null

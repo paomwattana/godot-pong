@@ -73,6 +73,6 @@ text = "0"
 [node name="BallSpawnTimer" type="Timer" parent="."]
 one_shot = true
 
-[connection signal="body_entered" from="GoalLeft" to="." method="_on_GoalLeft_body_entered"]
-[connection signal="body_entered" from="GoalRight" to="." method="_on_GoalRight_body_entered"]
+[connection signal="area_entered" from="GoalLeft" to="." method="_on_GoalLeft_area_entered"]
+[connection signal="area_entered" from="GoalRight" to="." method="_on_GoalRight_area_entered"]
 [connection signal="timeout" from="BallSpawnTimer" to="." method="_on_BallSpawnTimer_timeout"]

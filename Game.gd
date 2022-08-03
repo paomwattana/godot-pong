@@ -20,13 +20,13 @@ func checkGameOver():
 			pass
 		self.add_child(gameOverMenu)
 
-func _on_GoalLeft_body_entered(_body):
+func _on_GoalLeft_area_entered(_body):
 	scoreAI += 1
 	$Scores/AIScore.text = str(scoreAI)
 	checkGameOver()
 	ballSpawnTimer.start()
 
-func _on_GoalRight_body_entered(_body):
+func _on_GoalRight_area_entered(_body):
 	scorePlayer += 1
 	$Scores/PlayerScore.text = str(scorePlayer)
 	checkGameOver()
