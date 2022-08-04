@@ -6,7 +6,7 @@ const gameOverMenuResource = preload("res://GameOverMenu.tscn")
 onready var scorePlayer = 0
 onready var scoreAI = 0
 onready var ballSpawnTimer = $BallSpawnTimer
-export var WINNING_SCORE = 2
+export var WINNING_SCORE = 5
 
 
 
