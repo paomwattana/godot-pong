@@ -30,3 +30,10 @@ func _on_Ball_body_entered(body:Node):
 		velocity *= MAX_SPEED
 	else:
 		velocity.y = -velocity.y
+
+
+func _on_GoalRight_area_entered(_body):
+	queue_free()
+
+func _on_GoalLeft_area_entered(_body):
+	queue_free()

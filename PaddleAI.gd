@@ -5,8 +5,6 @@ var ball = null
 var velocity = Vector2.ZERO
 
 
-func _ready():
-	pass
 
 func _physics_process(delta):
 	velocity = Vector2.ZERO

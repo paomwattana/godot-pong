@@ -18,7 +18,7 @@ func checkGameOver():
 			pass
 		else: # AI wins
 			pass
-		self.add_child(gameOverMenu)
+		self.call_deferred("add_child", gameOverMenu)
 
 func _on_GoalLeft_area_entered(_body):
 	scoreAI += 1
@@ -39,7 +39,7 @@ func _on_BallSpawnTimer_timeout():
 	ball.position.y = 300
 	
 	# allow ball to be deleted after hitting goal
-	$GoalLeft.connect("body_entered", ball, "_on_GoalLeft_body_entered")
-	$GoalRight.connect("body_entered", ball, "_on_GoalRight_body_entered")
+	$GoalLeft.connect("area_entered", ball, "_on_GoalLeft_area_entered")
+	$GoalRight.connect("area_entered", ball, "_on_GoalRight_area_entered")
 	
-	self.add_child(ball)
+	self.call_deferred("add_child", ball)

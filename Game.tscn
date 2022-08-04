@@ -14,10 +14,10 @@ extents = Vector2( 10, 295 )
 script = ExtResource( 3 )
 
 [node name="PaddleAI" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1000, 300 )
+position = Vector2( 976, 300 )
 
 [node name="PaddlePlayer" parent="." instance=ExtResource( 1 )]
-position = Vector2( 24, 300 )
+position = Vector2( 48, 300 )
 
 [node name="Wall" type="StaticBody2D" parent="."]
 
@@ -53,6 +53,7 @@ margin_top = 240.0
 margin_right = 550.0
 margin_bottom = 280.0
 rect_scale = Vector2( 3, 3 )
+mouse_filter = 2
 __meta__ = {
 "_edit_group_": true
 }
