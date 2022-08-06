@@ -6,21 +6,23 @@ const gameOverMenuResource = preload("res://GameOverMenu.tscn")
 onready var scorePlayer = 0
 onready var scoreAI = 0
 onready var ballSpawnTimer = $BallSpawnTimer
-export var WINNING_SCORE = 5
+onready var winLoseLabel = $WinLoseLabel
+export var WINNING_SCORE = 2
 
 
 
 func _ready():
 	ballSpawnTimer.start()
+	winLoseLabel.visible = false
 
 func checkGameOver():
 	if (WINNING_SCORE <= scorePlayer || WINNING_SCORE <= scoreAI):
-		
+		winLoseLabel.visible = true
 		var gameOverMenu = gameOverMenuResource.instance()
 		if (WINNING_SCORE <= scorePlayer): # player wins
-			pass
+			winLoseLabel.text = "You Won!"
 		else: # AI wins
-			pass
+			winLoseLabel.text = "You Lost..."
 		self.call_deferred("add_child", gameOverMenu)
 	else:
 		ballSpawnTimer.start()

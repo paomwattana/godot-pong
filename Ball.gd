@@ -8,7 +8,7 @@ func _ready():
 	rng.randomize()
 	
 	# randomize direction
-	velocity.x = rng.randf_range(-1, 1)
+	velocity.x = rng.randf_range(-1, -0.5)
 	velocity.y = rng.randf_range(-1, 1)
 	velocity = velocity.normalized() # turn into unit vector
 	
@@ -23,8 +23,12 @@ func _physics_process(delta):
 func _on_Ball_body_entered(body:Node):
 	if body.name == "PaddlePlayer" || body.name == "PaddleAI": # PaddlePlayer or PaddleAI
 		# to be replaced with proper physics, random for now
-		velocity.x = -velocity.x
-		velocity.y = rng.randf_range(-1, 1) * MAX_SPEED
+		# ooga booga random
+		if (velocity.x < 0):
+			velocity.x = rng.randf_range(0.5, 1)
+		else:
+			velocity.x = rng.randf_range(-1, -0.5)
+		velocity.y = rng.randf_range(-1, 1)
 		velocity = velocity.normalized() # turn into unit vector
 		
 		velocity *= MAX_SPEED

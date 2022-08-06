@@ -7,7 +7,7 @@
 extents = Vector2( 3, 23 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 156.5, 612 )
+extents = Vector2( 98, 612 )
 
 [node name="PaddleAI" type="KinematicBody2D"]
 script = ExtResource( 2 )
@@ -23,7 +23,7 @@ shape = SubResource( 1 )
 [node name="DetectionArea2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea2D"]
-position = Vector2( -169.5, 0 )
+position = Vector2( -115, 0 )
 shape = SubResource( 2 )
 
 [connection signal="area_entered" from="DetectionArea2D" to="." method="_on_DetectionArea2D_area_entered"]
