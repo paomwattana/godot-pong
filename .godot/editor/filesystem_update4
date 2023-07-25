@@ -1,0 +1,7 @@
+res://default_env.tres
+res://StartMenu.tscn
+res://Game.tscn
+res://paddle/PaddlePlayer.tscn
+res://paddle/PaddleAI.tscn
+res://ball/Ball.tscn
+res://ui/StartMenu.gd
