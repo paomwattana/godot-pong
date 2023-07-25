@@ -29,12 +29,12 @@ func checkGameOver():
 
 func _on_GoalLeft_area_entered(_body):
 	scoreAI += 1
-	$Scores/AIScore.text = str(scoreAI) # 
+	$ScoresUI/AIScore.text = str(scoreAI) # 
 	checkGameOver()
 
 func _on_GoalRight_area_entered(_body):
 	scorePlayer += 1
-	$Scores/PlayerScore.text = str(scorePlayer)
+	$ScoresUI/PlayerScore.text = str(scorePlayer)
 	checkGameOver()
 
 

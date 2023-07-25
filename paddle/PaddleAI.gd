@@ -1,21 +1,19 @@
 extends CharacterBody2D
 
-@export var speed: int = 800
+@export var speed: int = 600
 var ball = null
-var AiVelocity = Vector2.ZERO
+var PaddleVelocity = Vector2.ZERO
 
 
 
 func _physics_process(delta):
-	AiVelocity = Vector2.ZERO
+	PaddleVelocity = Vector2.ZERO
 	if (ball):
-		# move AI paddle towards ball
-		AiVelocity = position.direction_to(ball.position) * speed
-		AiVelocity.x = 0
-	set_velocity(AiVelocity)
+		# moves AI paddle towards the ball
+		PaddleVelocity = position.direction_to(ball.position) * speed
+		PaddleVelocity.x = 0
+	set_velocity(PaddleVelocity)
 	move_and_slide()
-	AiVelocity = AiVelocity
-
 
 func _on_DetectionArea2D_area_entered(area):
 	ball = area

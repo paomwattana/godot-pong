@@ -5,3 +5,6 @@ res://paddle/PaddlePlayer.tscn
 res://paddle/PaddleAI.tscn
 res://ball/Ball.tscn
 res://ui/StartMenu.gd
+res://paddle/PaddlePlayer.gd
+res://paddle/PaddleAI.gd
+res://Game.gd

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cas7r03cvbc1j"]
+[gd_scene load_steps=11 format=3 uid="uid://cas7r03cvbc1j"]
 
 [ext_resource type="PackedScene" uid="uid://dy72i3hd5mq2j" path="res://paddle/PaddlePlayer.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://cdyvq6bnx0of" path="res://paddle/PaddleAI.tscn" id="2"]
@@ -10,6 +10,18 @@ size = Vector2(966, 22)
 
 [sub_resource type="RectangleShape2D" id="3"]
 size = Vector2(22, 551)
+
+[sub_resource type="SystemFont" id="SystemFont_w6ugq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1vox5"]
+font = SubResource("SystemFont_w6ugq")
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_63kjv"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_x7pcs"]
+font_size = 30
 
 [node name="Game" type="Node2D"]
 script = ExtResource("3")
@@ -48,32 +60,41 @@ position = Vector2(1036, 300)
 position = Vector2(-24, 1.5)
 shape = SubResource("3")
 
-[node name="Scores" type="HSplitContainer" parent="."]
-offset_left = 470.0
-offset_top = 240.0
-offset_right = 550.0
-offset_bottom = 280.0
-scale = Vector2(3, 3)
-mouse_filter = 2
-
-[node name="PlayerScore" type="Label" parent="Scores"]
-layout_mode = 2
-text = "0"
-
-[node name="AIScore" type="Label" parent="Scores"]
-layout_mode = 2
-text = "0"
-
 [node name="BallSpawnTimer" type="Timer" parent="."]
 one_shot = true
 
 [node name="WinLoseLabel" type="Label" parent="."]
 offset_left = 379.0
 offset_top = 140.0
-offset_right = 444.0
+offset_right = 646.0
 offset_bottom = 180.0
-scale = Vector2(4, 4)
 text = "dummy"
+label_settings = SubResource("LabelSettings_1vox5")
+horizontal_alignment = 1
+
+[node name="ScoresUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PlayerScore" type="Label" parent="ScoresUI"]
+layout_mode = 2
+offset_left = 455.0
+offset_top = 260.0
+offset_right = 472.0
+offset_bottom = 305.0
+text = "0"
+label_settings = SubResource("LabelSettings_63kjv")
+
+[node name="AIScore" type="Label" parent="ScoresUI"]
+layout_mode = 2
+offset_left = 550.0
+offset_top = 260.0
+offset_right = 567.0
+offset_bottom = 305.0
+text = "0"
+label_settings = SubResource("LabelSettings_x7pcs")
 
 [connection signal="area_entered" from="GoalLeft" to="." method="_on_GoalLeft_area_entered"]
 [connection signal="area_entered" from="GoalRight" to="." method="_on_GoalRight_area_entered"]

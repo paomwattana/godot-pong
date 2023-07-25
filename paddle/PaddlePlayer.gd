@@ -16,4 +16,4 @@ func _physics_process(delta):
 	get_input()
 	set_velocity(PlayerVelocity)
 	move_and_slide()
-	PlayerVelocity = PlayerVelocity
+	# PlayerVelocity = PlayerVelocity
