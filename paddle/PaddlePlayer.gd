@@ -3,17 +3,14 @@ extends CharacterBody2D
 
 @export var speed: int = 800
 
-var PlayerVelocity = Vector2()
-
-func get_input():
-	PlayerVelocity = Vector2()
-	if Input.is_action_pressed("ui_down"):
-		PlayerVelocity.y = speed
-	if Input.is_action_pressed("ui_up"):
-		PlayerVelocity.y = -speed
-
 func _physics_process(delta):
-	get_input()
-	set_velocity(PlayerVelocity)
-	move_and_slide()
-	# PlayerVelocity = PlayerVelocity
+	velocity = Vector2.ZERO
+	if Input.is_action_pressed("ui_down"):
+		velocity.y = speed
+	if Input.is_action_pressed("ui_up"):
+		velocity.y = -speed
+
+	# using move_and_collide
+	var collision = move_and_collide(velocity * delta)
+	if collision:
+		velocity = velocity.slide(collision.get_normal())
